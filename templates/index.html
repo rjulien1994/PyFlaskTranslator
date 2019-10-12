@@ -2,66 +2,8 @@
 <html>
 	<head>
 		<title>Dictionary</title>	<!-- This is the title that appears in the tab -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='mainStyle.css') }}">
 
-		<style>	
-			/* This is the css file which will be separeted later */
-			body {	/* This is where where your put what you want to change the style of */
-  				background-color: #990000;
-			}
-
-			div {
-				background-color: #000000;
-				border-style: outset;
-				margin-top: 20px;
-				margin-bottom: 20px;	/* margin deals with the space outside the box */
-				padding-bottom: 20px;	/* padding deals with the space inside box */
-				padding-top: 20px;
-			}
-
-			h1 {
-  				color: white;
-			}
-
-			strong {
-				color: white;
-			}
-
-			h4 {
-				color: white;
-			}
-
-			p {
-  				font-family: verdana;
-  				font-size: 14px;
-  				color: white;
-			}
-
-			.extreme {
-				float: left;
-				text-align: center;
-				height: 100px;
-				width: 80%;
-				margin-left: 10%;
-			}
-
-			.leftSide {
-				float: left;
-				text-align: center;
-				height: 150px;
-				width: 37%;
-				margin-left: 10%;
-			}
-
-			.rightSide {
-				float: right;
-				text-align: center;
-				height: 150px;
-				width: 37%;
-  				margin-right: 10%;
-			}
-
-
-		</style>
 	</head>
 	<body>
 		<div id="titleBox" class="extreme">	<!-- div creates elements that can be changed in style later "like boxes" -->
