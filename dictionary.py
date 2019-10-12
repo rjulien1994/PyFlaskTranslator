@@ -1,6 +1,5 @@
 #You need to download mysql and popSQL to first create your database
-#Look at the text file attached with the different command to create and fill your database
-#Sencond you need python with the packages flask, numpy and mysql.connector
+#you need python with the packages flask, numpy and mysql.connector
 #I would usually have each of my project in their own environment to not create conflicts
 #to run the server in developers mode just execute this file from cmd promt
 
