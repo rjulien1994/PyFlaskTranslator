@@ -1,6 +1,5 @@
-/* This is the css file which will be separeted later */
-body {	/* This is where where your put what you want to change the style of */
-			background-color: #990000;
+body {	
+	background-color: #990000;
 }
 
 div {
@@ -13,7 +12,7 @@ div {
 }
 
 h1 {
-			color: white;
+	color: white;
 }
 
 strong {
@@ -25,9 +24,9 @@ h4 {
 }
 
 p {
-			font-family: verdana;
-			font-size: 14px;
-			color: white;
+	font-family: verdana;
+	font-size: 14px;
+	color: white;
 }
 
 .extreme {
@@ -51,5 +50,5 @@ p {
 	text-align: center;
 	height: 150px;
 	width: 37%;
-			margin-right: 10%;
+	margin-right: 10%;
 }
