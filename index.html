@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dictionary</title>	<!-- This is the title that appears in the tab -->
+
+		<style>	
+			/* This is the css file which will be separeted later */
+			body {	/* This is where where your put what you want to change the style of */
+  				background-color: #990000;
+			}
+
+			div {
+				background-color: #000000;
+				border-style: outset;
+				margin-top: 20px;
+				margin-bottom: 20px;	/* margin deals with the space outside the box */
+				padding-bottom: 20px;	/* padding deals with the space inside box */
+				padding-top: 20px;
+			}
+
+			h1 {
+  				color: white;
+			}
+
+			strong {
+				color: white;
+			}
+
+			h4 {
+				color: white;
+			}
+
+			p {
+  				font-family: verdana;
+  				font-size: 14px;
+  				color: white;
+			}
+
+			.extreme {
+				float: left;
+				text-align: center;
+				height: 100px;
+				width: 80%;
+				margin-left: 10%;
+			}
+
+			.leftSide {
+				float: left;
+				text-align: center;
+				height: 150px;
+				width: 37%;
+				margin-left: 10%;
+			}
+
+			.rightSide {
+				float: right;
+				text-align: center;
+				height: 150px;
+				width: 37%;
+  				margin-right: 10%;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<div id="titleBox" class="extreme">	<!-- div creates elements that can be changed in style later "like boxes" -->
+			<h1>Quick translator</h1>	<!-- h1 id a main title but you can have as many subtitle as you want -->
+
+			<p>The translator is set from <strong id="LanguageIn"></strong> to <strong id="LanguageOut"></strong></p>
+			<!-- I am setting two variables to fill in the javascript depending on input -->
+		</div>
+
+
+		<div id="translatorBox"  class="leftSide">
+			<h4>Type the word you are looking for here</h4>
+
+			<input type="text" id="toTranslate" value="Hello">
+			<button onclick="translation()">Translate</button>	<!-- this creates a button that when clicked on calls the function translation -->
+			<p id="wordOutput"></p>	<!-- this creates an ouput for js code -->
+		</div>
+
+		<div id="minigameBox" class="rightSide">
+			<h4>Test yourself here</h4>
+
+			<p>
+				Can you find the right word for <strong id="randomWord"></strong></br>
+				Type your Answer here <input type="text" id="wordAnswer" value=""> <strong id="correction"></strong>
+				<button onclick="checkAnswer()">Check your answer</button> 
+				<button onclick="changeRandomWord()">Change word</button></br>
+				Your Score: <strong id="score"></strong> 
+			</p>
+		</div>
+
+		<div id="addBox" class="leftSide">
+			<h4>You can also add words here</h4>
+			
+			<p>	
+				<form method="POST">
+					<input type="text" name="eInput" value="English"> -> 
+					<input type="text" name="fInput" value="Francais"> -> 
+					<input type="text" name="gInput" value="German">
+					<input type="submit" value="add">		<!-- while the button tag activate js script these button submit the form to the server straight away, you could submit the form to js before sending it to server -->
+				</form>
+			</p>
+		</div>
+
+		<div id="deleteBox" class="rightSide">
+			<h4>Remove a word</h4>
+			
+			<p>
+				If a translation doesn't seem right you can remove it here:</br>
+				<form method="POST">
+					<input type="text" id="wordCheck" name="toRemove" value=""> <strong id="frenchCheck"></strong><strong id="germanCheck"></strong>
+					<input type="submit" value="delete">
+				</form>
+				<button onclick="pullQuery()">Check full translation</button>
+			</p>
+		</div>
+
+		<div id="languageBox"  class="extreme">
+			<h4>Change language here</h4>
+
+			<p>from : 
+				<select id="selectIn" value='English'>	<!-- creates drop down n=menu for languages available -->
+					<option value='English'>English</option>
+					<option value='French'>French</option>
+					<option value='German'>German</option>
+				</select>
+				
+				to : 
+				<select id="selectOut" value='French'>
+					<option value='English'>English</option>
+					<option value='French'>French</option>
+					<option value='German'>German</option>
+				</select>	
+			<button onclick="changeLanguage()">Confirm</button>
+			</p>
+		</div>
+		<script type="text/javascript">
+			var englishDict = {{ englishDict|tojson }};	//tojson is the js way to read the json dat sent by python
+			var frenchDict = {{ frenchDict|tojson }};	//you can't use tojson in a file that wasn't specified in python code
+			var germanDict = {{ germanDict|tojson }};
+		</script>
+		<script type='text/javascript' src="{{ url_for('static', filename='dictScripts.js') }}">	</script>
+		<!-- This is how you link a js script using flask -->
+	</body>
+</html>
